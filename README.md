@@ -13,33 +13,33 @@ to everyone who is capable in reading and writing javascript.
 You need node.js to be installed on your system!
 Go to the folder of the example you would like play around with and execute
 
-‘‘‘bash
+```shell
 node server.js
-‘‘‘
+```
 
 This will start up a webserver you can reach via 
 
-‘‘‘bash
+```shell
 localhost:[port_of_the_example]/
-‘‘‘
+```
 
 The examples will be run under the following ports:
 
-presentation -> (HTTP)8089 / (Websocket)8089
++ presentation -> (HTTP)8089 / (Websocket)8089
 
-getUserMedia -> (HTTP)8001 / (Websocket)8011
-pictureUserMedia -> (HTTP)8002 / (Websocket)8012
-streamUserMedia -> (HTTP)8003 / (Websocket)8013
++ getUserMedia -> (HTTP)8001 / (Websocket)8011
++ pictureUserMedia -> (HTTP)8002 / (Websocket)8012
++ streamUserMedia -> (HTTP)8003 / (Websocket)8013
 
-shinyLed -> (HTTP)8004 / (Websocket)8014
-trollDetecor -> (HTTP)8005 / (Websocket)8015
++ shinyLed -> (HTTP)8004 / (Websocket)8014
++ trollDetecor -> (HTTP)8005 / (Websocket)8015
 
-kinectFireworks -> (HTTP)8006 / (Websocket)8016
-kinectPong -> (HTTP)8007 / (Websocket)8017
-kinectControl -> (HTTP)8010
++ kinectFireworks -> (HTTP)8006 / (Websocket)8016
++ kinectPong -> (HTTP)8007 / (Websocket)8017
++ kinectControl -> (HTTP)8010
 
-beyond3d -> (HTTP)8008 / (Websocket)8018
-beyond3dcube -> (HTTP)8009 / (Websocket)8019
++ beyond3d -> (HTTP)8008 / (Websocket)8018
++ beyond3dcube -> (HTTP)8009 / (Websocket)8019
 
 If you have questins regarding one of the examples,
 feel free to use the issue tracker!

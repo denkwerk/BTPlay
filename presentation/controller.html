@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Preazi Controller</title>
+</head>
+<body>
+    <button id="prev">Prev</button>
+    <button id="next">Next</button><br />
+    <button id="coin">Coin</button> 
+    <button id="gameover">Gameover</button><br />
+    <button id="flag">Flag</button> 
+    <button id="bowser">Bowser</button><br />
+    <button id="jump">Jump</button> 
+    <button id="pipe">Pipe</button><br />
+    <button id="die">Die</button> 
+    <button id="time">Time</button><br />            
+<script src="js/jquery.js"></script>    
+<script src="/socket.io/socket.io.js"></script>
+<script>
+$(function () {
+    socket = io.connect(String(window.location).replace('controller.html', ''));
+
+    socket.on('connect', function () {
+        console.log('Me connected');
+    });
+
+    $('#next').click(function () {
+        socket.emit('next');
+    });
+    $('#prev').click(function () {
+        socket.emit('prev');
+    });
+    $('#coin').click(function () {
+        socket.emit('playCoin');
+    });
+    $('#gameover').click(function () {
+        socket.emit('playGameover');
+    }); 
+    $('#flag').click(function () {
+        socket.emit('playFlag');
+    });
+    $('#bowser').click(function () {
+        socket.emit('playBowser');
+    });
+    $('#jump').click(function () {
+        socket.emit('playJump');
+    });
+    $('#pipe').click(function () {
+        socket.emit('playPipe');
+    });
+    $('#die').click(function () {
+        socket.emit('playDie');
+    });
+    $('#time').click(function () {
+        socket.emit('playTime');
+    });      
+});
+</script>
+</body>
+</html>

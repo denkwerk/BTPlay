@@ -1,0 +1,31 @@
+body {
+    font-family: 'SilkscreenNormal', sans-serif;
+    min-height: 740px;
+    background-image: url('/img/cologne-back.png');
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-font-smoothing: antialiased;
+	margin: 0;
+	padding: 0;
+	width:100%;
+	height:100%;    
+}
+
+#wrapper {
+	padding: 5px;
+	border: 3px solid white;
+	background-color: black;
+	width: 800px;
+	height: 600px;
+	margin: 30px auto;
+}
+
+#sourcecopy, #output {
+    display:none;
+}
+
+#stream {
+	height:600px !important; 
+	width:800px !important; 
+	background-size: 100%;
+}

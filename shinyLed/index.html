@@ -1,0 +1,57 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>C´mon baby light my led</title> 
+    <meta name="viewport" content="width=device-width, user-scalable=yes">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1 style="color: red">Red LED</h1>
+    <button id="led1" data-color="red" data-idx="0">LED 1 (off)</button>
+    <button id="led2" data-color="red" data-idx="1">LED 2 (off)</button>
+    <button id="led3" data-color="red" data-idx="2">LED 3 (off)</button>
+
+    <h1 style="color: green">Green LED</h1>
+    <button id="led4" data-color="green" data-idx="0">LED 1 (off)</button>
+    <button id="led5" data-color="green" data-idx="1">LED 2 (off)</button>
+    <button id="led6" data-color="green" data-idx="2">LED 3 (off)</button>
+            
+    <script src="jquery.js"></script>
+    <script src="socket.io.js"></script>
+    <script>
+        var socket = io.connect(String(window.location).replace('8004', '8014'));
+
+        // emit toggleLed event when a button is clicked
+        function toggleLed (event) {
+            socket.emit('toggleLed', {
+                id: event.currentTarget.id,
+                color: $(event.currentTarget).attr('data-color'),
+                idx: $(event.currentTarget).attr('data-idx')
+            });
+        }
+
+        // generate list of available led´s
+        for (idx in [1,2,3,4,5,6]) {
+            var id = parseInt(idx, 10) + 1;
+            // bind click handler
+            document.getElementById('led' + id).addEventListener('click', toggleLed, false);
+        }
+
+        // change status text if led content changes
+        socket.on('ledChange', function (data) {
+            var text = $('#' + data.id).text();
+
+            if (text.search('off') !== -1) {
+                $('#' + data.id).text(text.replace('off', 'on'));
+                $('#' + data.id).css('color', 'yellow');
+            } else {
+                $('#' + data.id).text(text.replace('on', 'off'));
+                $('#' + data.id).css('color', 'white');
+            }
+        });
+
+    </script>
+</body>
+</html>

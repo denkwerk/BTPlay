@@ -1,0 +1,26 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>    
+    <title>HTML5 - Streaming Video Client (Receiver)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="wrapper">
+        <div id="stream"></div>
+    </div>
+    
+    <script src="socket.io.js"></script>
+    <script>
+        var websocketHost = String(window.location).replace('client.html', '').replace('8002', '8012');
+    	var image = document.getElementById('stream');
+		var socket = io.connect(websocketHost);
+
+        // receives the base64 encoded data stream
+		socket.on('picture-client', function (data) {
+            // show the received image
+		    image.setAttribute('style', 'width: '+ data.width +'; height: '+ data.height +'; background: url(' + data.picture + ') no-repeat');
+		});	
+    </script>
+</body>
+</html>

@@ -1,0 +1,260 @@
+#container{
+	position:absolute;
+	width:100%;
+	height:100%;
+	margin:0;
+	padding:0;
+	z-index:100;
+}
+
+#tiles{
+	height: 95%;
+	overflow: hidden;
+	margin: 0 auto;
+	padding: 10px;
+	width: 95%;
+	padding-left:5%;
+	position:relative;
+	z-index:150;
+	list-style:none;
+}
+#tiles li{
+	opacity:0.9;
+	background: #4e1468;
+
+	float: left;
+	height: 22%;
+	margin: 7px 7px 0 7px;
+	overflow: hidden;
+	position: relative;
+	width: 22%;
+	
+	border: 1px solid rgba( 100, 100, 0, 0.6);
+	
+	-webkit-transition: -webkit-transform 0.14s ease-in;
+	-moz-transition: -moz-transform 0.14s ease-in;
+	-ms-transition: -ms-transform 0.14s ease-in;
+	-o-transition: -ms-transform 0.14s ease-in;
+	transition: -ms-transform 0.14s ease-in;
+}
+#tiles li.active{
+	background: #96516e; /* Old browsers */
+	background: -moz-linear-gradient(top,  #96516e 8%, #4e1468 95%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(8%,#96516e), color-stop(95%,#4e1468));
+	background: -webkit-linear-gradient(top,  #96516e 8%,#4e1468 95%);
+	background: -o-linear-gradient(top,  #96516e 8%,#4e1468 95%);
+	background: -ms-linear-gradient(top,  #96516e 8%,#4e1468 95%);
+	background: linear-gradient(top,  #96516e 8%,#4e1468 95%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#96516e', endColorstr='#4e1468',GradientType=0 );
+
+	opacity:0.9;
+}
+#tiles li div {
+	background: none;
+	height: 100%;
+	width: 100%;
+	margin:0;
+	overflow: hidden;
+}
+#tiles li h2 {
+	bottom: 10px;
+	color:#f0f0f0;
+	left: 20px;
+	font-size:20px;
+	position: absolute;
+	font-weight:normal;
+	text-shadow: 0px -1px 0 #999999;
+	white-space: nowrap;
+	text-decoration:none;
+	z-index:100;
+	
+	font-family: 'Verdana', serif;
+	-webkit-transition: bottom 200ms ease-in;
+	-moz-transition: bottom 200ms ease-in;
+	-o-transition: bottom 200ms ease-in;
+	-ms-transition: bottom 200ms ease-in;
+}
+#tiles li.high{
+	height:44%;
+	padding-bottom:7px;
+}
+#tiles li.wide{
+	width:44%;
+	padding-right:16px;
+}
+#tiles li.square{
+	width:44%;
+	height:44%;
+	padding-bottom:7px;
+	padding-right:16px;
+}
+
+/* span effects */
+#tiles span{
+	display:block;
+	position:absolute;
+	bottom:0;
+	width:100%;
+	left:0;
+	height:0;
+	opacity:0.6;
+	background:#E0BB55;
+	
+	-webkit-transition:height 400ms ease-in-out;
+	-moz-transition:height 400ms ease-in-out;
+	-o-transition:height 400ms ease-in-out;
+	-ms-transition:height 400ms ease-in-out;
+}
+#tiles li.over h2{
+	color:#101010;
+	bottom:40px;
+}
+#tiles li.over{
+	background-color:#9337BD;
+}
+#tiles .over span{
+	-webkit-transition:height 1900ms ease-in;
+	-moz-transition:height 1900ms ease-in;
+	-o-transition:height 1900ms ease-in;
+	-ms-transition:height 1900ms ease-in;
+	height:100%;
+	z-index:10;
+}
+
+.slide{
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0;
+	-webkit-transition: left 600ms ease-in;
+	-moz-transition: left 600ms ease-in;
+	-ms-transition: left 600ms ease-in;
+	z-index:500;
+}
+#wrap2{
+	left:100%;
+}
+
+#skCount{
+	position:absolute;
+	font-size:68px;
+	color:#f6f6f6;
+	left:68%;
+	top:24%;
+	font-family: 'Verdana', serif;
+}
+#skImg{
+	position:absolute;
+	top:10%;
+	left:6%;
+	height:68%;
+}
+
+/* title icons icons */
+#tiles .map,
+#tiles .mess,
+#tiles .pong,
+#tiles .hockey,
+#tiles .tilt,
+#tiles .theremin,
+#tiles .duckhunt,
+#tiles .fastkat,
+#tiles .cars{
+	background-image:url(../images/icons/maps.png);
+	background-repeat:no-repeat;
+	background-position:48% 46%;
+	background-size:34%;
+}
+#tiles .cars{ background-image:url(../images/icons/cars.png); background-size:30%; }
+#tiles .fastkat{
+	background-image:url(../images/icons/fastkat.png);
+	background-position:28% 26%;
+	background-size:100%;	
+}
+#tiles .pong{ background-image:url(../images/icons/pong.png); background-size:48%; }
+#tiles .hockey{ background-image:url(../images/icons/hockey.png); background-size:48%; }
+#tiles .tilt{ background-image:url(../images/icons/tilt.png); background-size:58%; }
+#tiles .theremin{ background-image:url(../images/icons/theremin.png); background-size:48%; }
+#tiles .duckhunt{ background-image:url(../images/icons/duckhunt.png); background-size:45%; }
+#tiles .mess{ background-image:url(../images/icons/audiomess.png); background-size:36%; background-position:48% 16%; }
+
+
+#picContainer img{
+	position:absolute;l
+	left:0;
+	top:0;
+	opacity:0;
+	-webkit-transition: opacity 0.6s ease-in;
+	-moz-transition: opacity 0.6s ease-in;
+	-o-transition: opacity 0.6s ease-in;
+	-ms-transition: opacity 0.6s ease-in;
+}
+
+#picContainer img.fadeIn{ opacity:1; }
+
+
+/* gallery */
+#gallery {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	overflow:hidden;
+	left:0;
+	top:0;
+}
+#gallery span {
+	position: absolute;
+	right: 0;
+	bottom: 15px;
+	color: #999;
+	background: white;
+	text-align: right;
+	padding: 10px;
+	font-size: 13px;
+	font-weight: bold;
+}
+#gallery img {
+	-webkit-mask-box-image: url(../images/root/background.svg);
+	-moz-mask-box-image: url(../images/root/background.svg);
+	-o-mask-box-image: url(../images/root/background.svg);
+	-ms-mask-box-image: url(../images/root/background.svg);
+	
+	
+	-webkit-mask-repeat: none;
+	-moz-mask-repeat: none;
+	-o-mask-repeat: none;
+	-ms-mask-repeat: none;
+	
+	-webkit-transform:translate3d(0,0,0);
+	-moz-transform:translate3d(0,0,0);
+	-o-transform:translate3d(0,0,0);
+	-ms-transform:translate3d(0,0,0);
+	
+	border-radius:10px;
+}
+#gallery div {
+	background: white;
+	position: absolute;
+	overflow: hidden;
+	opacity: 0.9;
+	-webkit-transition: all 1500ms linear;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	-webkit-box-shadow: -3px -3px 50px #666;
+	-moz-box-shadow: -3px -3px 50px #666;
+	-o-box-shadow: -3px -3px 50px #666;
+	-ms-box-shadow: -3px -3px 50px #666;
+	box-shadow: -3px -3px 50px #666;
+	
+	-webkit-transition: -webkit-transform 0.1s ease-in;
+	-moz-transition: -webkit-transform 0.1s ease-in;
+	-o-transition: -webkit-transform 0.1s ease-in;
+	-ms-transition: -webkit-transform 0.1s ease-in;
+}
+#gallery div.over {
+	box-shadow: -3px -3px 40px #F2D841;
+	border:2px solid #F2D841;
+}

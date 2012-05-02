@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Fire? Works!</title>
+		<link rel="stylesheet" href="css/fireworks.css"/>
+		<link rel="stylesheet" href="css/demo.css"/>
+		<link href="/css/global.css" rel="stylesheet" />
+		<link href="/css/index.css" rel="stylesheet"/>		
+		<script src="js/fireworks.js"></script>
+		<script src="js/kinect.js"></script>
+		<script src="js/socket.io.js"></script>
+		<script src="js/demo.js"></script>				
+	</head>
+	<body style="background: black;">
+		
+		<!-- Firework template -->
+		<div id="fireworks-template">
+			<div id="fw" class="firework"></div>
+			<div id="fp" class="fireworkParticle">
+				<img src="/images/particles.gif" />
+			</div>
+		</div>
+		<div id="fireContainer"></div>
+		<!-- Firework template -->
+
+		<!-- Fire Buttons -->
+			<div id="fire1"></div>
+			<div id="fire2"></div>
+			<div id="fire3"></div>
+		<!-- Fire Buttons -->
+
+	</body>
+</html>

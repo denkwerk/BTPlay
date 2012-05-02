@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Image Stream test</title>
+		<script src="js/kinect.js"></script>
+	</head>
+	<body>
+		<h3> <a href="#" id="activateRGB"> RGB Stream (webWorker - firefox needs webSocket configuration not webWorker)</a> <span id="rgbstatus"> OFF </span> </h3>
+		<img id="RGBstream" width="640" height="480" />
+		
+		<h3> <a href="#" id="activateDEPTH"> DEPTH Stream (webSocket)</a> <span id="depthtatus"> OFF </span> </h3>
+		<img id="DEPTHstream" width="320" height="240" />
+		
+		<hr />
+		<h2>Motor Controls</h2>
+		<div id="controls">
+			<a href="#" id="getAngle"> GET ANGLE </a> <br /><br />
+			<a href="#" id="resetAngle"> RESET ANGLE </a> <br /><br />
+			<input id="deg" type="text" value="10" />
+			<a href="#" id="setAngle">SET ANGLE</a>
+		</div>
+		
+		<script src="js/demo.js"></script>
+	</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html> 
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Trollollololol Detector</title> 
+        <meta name="viewport" content="width=device-width, user-scalable=yes">
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+
+        <div id="wrapper">
+            <div class="line">
+                <div class="unit size2of5 trollback">
+                    <img id="troll" src="img/troll.gif" />
+                    <img id="awesomness" src="img/awesomness.gif" />
+                </div>
+                <div class="unit size1of5">
+                    <ul class="trollmeter">
+                        <li>3</li>
+                        <li>2</li>
+                        <li>1</li>
+                    </ul>
+                </div>
+                <div id="tweet" class="unit size2of5 lastUnit tweet">&nbsp;</div>                
+            </div>
+        </div>
+
+        <div id="wrapper-list">
+            <h2 class="like-words">Like #hashes</h2>
+            <ul class="like-list">
+                <li>Stage I: #mothereffingentertainish</li>
+                <li>Stage II: #awesomchestral</li>
+                <li>Stage III: #uebertalk</li>
+            </ul>
+
+            <h2 class="troll-words">Troll #hashes</h2>
+            <ul class="troll-list">
+                <li>Stage I: #trollish</li>
+                <li>Stage II: #icandobetterdude</li>
+                <li>Stage III: #whatswrongwiththatguyonstage</li>
+            </ul>
+        </div>
+
+        <script src="jquery.js"></script>
+        <script src="socket.io.js"></script>
+        <script>
+            var socket = io.connect(String(window.location).replace('8005', '8015')),
+                $awesomness = $('#awesomness'),
+                $troll = $('#troll'),
+                $trollMeter = $('.trollmeter'),
+                $lis = $trollMeter.find('li'),
+                $tweet = $('#tweet');
+
+            function showTrollness (strength) {                  
+                $troll.show();
+                $trollMeter.addClass('red').removeClass('green');
+                if (strength >= 3) $($lis[0]).css('visibility', 'visible');
+                if (strength >= 2) $($lis[1]).css('visibility', 'visible');
+                if (strength >= 1) $($lis[2]).css('visibility', 'visible');
+            }
+                
+            function showAwesomness (strength) {
+                $awesomness.show();
+                $trollMeter.addClass('green').removeClass('red');
+                if (strength >= 3) $($lis[0]).css('visibility', 'visible');
+                if (strength >= 2) $($lis[1]).css('visibility', 'visible');
+                if (strength >= 1) $($lis[2]).css('visibility', 'visible');
+            }
+
+            function clearStage () {
+                $awesomness.hide();
+                $troll.hide();
+                $trollMeter.removeClass('green').removeClass('red');
+                $lis.css('visibility', 'hidden');
+                $tweet.text('');
+            }
+
+
+            socket.on('troll', function (data) {
+                showTrollness(data.strength);
+                $tweet.text(data.tweet.text);
+                window.setTimeout(clearStage, 5000);
+            });
+
+            socket.on('awesomness', function (data) {
+                showAwesomness(data.strength);
+                $tweet.text(data.tweet.text);
+                window.setTimeout(clearStage, 5000);
+            });
+
+        </script>
+    </body>
+</html>
